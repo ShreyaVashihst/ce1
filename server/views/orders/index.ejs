@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Orders List</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image:url('https://png.pngtree.com/thumb_back/fh260/back_our/20190620/ourmid/pngtree-tea-restaurant-menu-background-material-image_159445.jpg');
+  background-size:cover;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.btn-add-order, .btn-edit, .btn-delete {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: inline-block;
+  margin: 5px;
+}
+
+.btn-add-order {
+  background-color: #4CAF50;
+}
+
+.btn-edit {
+  background-color: #ffa500;
+}
+
+.btn-delete {
+  background-color: #f44336;
+}
+
+.order-list {
+  list-style: none;
+  padding: 0;
+}
+
+.order-item {
+  background: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-item strong {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.order-item .btn-edit, .order-item .btn-delete {
+  margin-right: 10px;
+}
+
+.order-item button {
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Orders List</h1>
+    <a href="/orders/new" class="btn-add-order">Add New Order</a>
+    <div>
+      <% if (orders.length > 0) { %>
+        <ul class="order-list">
+          <% orders.forEach(order => { %>
+            <li class="order-item">
+              <strong>Order ID: <%= order._id %></strong> - Total: $<%= order.total_amount.toFixed(2) %>
+              <a href="/orders/<%= order._id %>/edit" class="btn-edit">Edit</a>
+              <form action="/orders/<%= order._id %>/delete" method="POST" style="display:inline;">
+                <button type="submit" class="btn-delete">Delete</button>
+              </form>
+            </li>
+          <% }) %>
+        </ul>
+      <% } else { %>
+        <p>No orders found</p>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>
+

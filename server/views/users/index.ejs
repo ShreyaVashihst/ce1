@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users List</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://t4.ftcdn.net/jpg/02/78/69/37/360_F_278693728_O7t0fe2oDwwucHisBR1i8UhVxE5N229G.jpg'); 
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+      margin: 20px 10px;;
+    }
+    .container {
+      max-width: 800px;
+      margin: 10px auto;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    a {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #007bff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+    button {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Users List</h1>
+    <a href="/users/new">Add New User</a>
+    <ul>
+      <% users.forEach(user => { %>
+        <li>
+          <span><%= user.name %> - <%= user.email %></span>
+          <div>
+            <a href="/users/<%= user._id %>/edit">Edit</a>
+            <form action="/users/<%= user._id %>/delete" method="post" style="display:inline;">
+              <button type="submit">Delete</button>
+            </form>
+          </div>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+</body>
+</html>

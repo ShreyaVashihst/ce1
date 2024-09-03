@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add New Reservation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    h2 {
+      color: #666;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="time"],
+    input[type="number"],
+    textarea {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    button {
+      background-color: #5cb85c;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #4cae4c;
+    }
+
+    a {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Add New Reservation</h1>
+    <form action="/reservations" method="POST">
+      <h2>Customer Information</h2>
+      <label for="user_name">User Name:</label>
+      <input type="text" id="user_name" name="user_name" placeholder="Enter your name" required><br>
+
+      <label for="user_email">Email:</label>
+      <input type="email" id="user_email" name="user_email" placeholder="Enter your email" required><br>
+
+      <label for="user_phone">Phone Number:</label>
+      <input type="tel" id="user_phone" name="user_phone" placeholder="Enter your phone number" required><br>
+
+      <h2>Reservation Details</h2>
+      <label for="reservation_date">Reservation Date:</label>
+      <input type="date" id="reservation_date" name="reservation_date" required><br>
+
+      <label for="reservation_time">Reservation Time:</label>
+      <input type="time" id="reservation_time" name="reservation_time" required><br>
+
+      <label for="number_of_guests">Number of People:</label>
+      <input type="number" id="number_of_guests" name="number_of_guests" required><br>
+
+      <label for="special_requests">Special Requests:</label>
+      <textarea id="special_requests" name="special_requests"></textarea><br>
+
+      <button type="submit">Add Reservation</button>
+    </form>
+    <a href="/reservations">Back to Reservations List</a>
+  </div>
+</body>
+</html>

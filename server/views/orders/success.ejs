@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Created</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image:url('https://png.pngtree.com/thumb_back/fh260/back_our/20190620/ourmid/pngtree-tea-restaurant-menu-background-material-image_159445.jpg');
+      background-size:cover;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+    .back-link {
+      display: block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Order Created Successfully</h1>
+    <div class="message">
+      Your order has been created successfully!<br>
+      Order ID: <%= orderId %>
+    </div>
+    <a href="/orders" class="back-link">Back to Orders List</a>
+  </div>
+</body>
+</html>

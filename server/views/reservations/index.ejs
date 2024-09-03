@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reservations List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+     background-color: antiquewhite;
+    }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .btn-add-reservation {
+      display: inline-block;
+      padding: 10px 15px;
+      color: #fff;
+      background-color: #4CAF50;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #fff;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn-edit, .btn-delete {
+      text-decoration: none;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+    .btn-edit {
+      background-color: #ffa500;
+      margin-right: 10px;
+    }
+    .btn-delete {
+      background-color: #f44336;
+    }
+    form {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Reservations List</h1>
+    <a href="/reservations/new" class="btn-add-reservation">Add New Reservation</a>
+    <% if (reservations.length > 0) { %>
+      <ul>
+        <% reservations.forEach(reservation => { %>
+          <li>
+            <div>
+              <strong>Reservation ID: <%= reservation._id %></strong>
+              <div>Date: <%= reservation.reservation_date.toDateString() %>, Time: <%= reservation.reservation_time %></div>
+            </div>
+            <div>
+              <a href="/reservations/<%= reservation._id %>/edit" class="btn-edit">Edit</a>
+              <form action="/reservations/<%= reservation._id %>/delete" method="POST" style="display:inline;">
+                <button type="submit" class="btn-delete">Delete</button>
+              </form>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No reservations found.</p>
+    <% } %>
+  </div>
+</body>
+</html>

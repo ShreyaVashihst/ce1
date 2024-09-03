@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Menu Item</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://t4.ftcdn.net/jpg/02/78/69/37/360_F_278693728_O7t0fe2oDwwucHisBR1i8UhVxE5N229G.jpg'); 
+      background-size: cover;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #555;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Edit Menu Item</h1>
+    <form action="/menu/<%= menuItem._id %>" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="<%= menuItem.name %>" required>
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required><%= menuItem.description %></textarea>
+
+      <label for="price">Price:</label>
+      <input type="number" id="price" name="price" value="<%= menuItem.price %>" step="0.01" required>
+
+      <label for="category">Category:</label>
+      <input type="text" id="category" name="category" value="<%= menuItem.category %>" required>
+
+      <label for="availability_status">Availability Status:</label>
+      <input type="text" id="availability_status" name="availability_status" value="<%= menuItem.availability_status %>" required>
+
+      <button type="submit">Update Menu Item</button>
+    </form>
+    <a href="/menu" class="back-link">Back to Menu List</a>
+  </div>
+</body>
+</html>

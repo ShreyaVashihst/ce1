@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+  background-image: url('https://t4.ftcdn.net/jpg/02/78/69/37/360_F_278693728_O7t0fe2oDwwucHisBR1i8UhVxE5N229G.jpg'); 
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.menu-container {
+  background-color: rgba(242, 237, 237, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 40%; 
+  margin: 20px auto; 
+  position: relative;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center; 
+  margin-bottom: 20px;
+}
+
+.btn-add-menu {
+  display: block;
+  width: 70%; 
+  font-size: 1.5rem;
+  padding: 15px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 50px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  margin: 0 auto; }
+
+.btn-add-menu:hover {
+  background-color: #218838;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+  </style>
+</head>
+<body>
+  <div class="container mt-5 menu-container">
+    <h1>Menu</h1>
+    <a href="/menu/new" class="btn btn-add-menu">Add New Menu Item</a>
+    <div class="row">
+      <% menuItems.forEach(menuItem => { %>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title"><%= menuItem.name %></h5>
+              <p class="card-text"><%= menuItem.description %></p>
+              <p class="card-text"><strong>Price:</strong> $<%= menuItem.price %></p>
+              <p class="card-text"><strong>Category:</strong> <%= menuItem.category %></p>
+              <p class="card-text"><strong>Availability:</strong> <%= menuItem.availability_status %></p>
+              <a href="/menu/<%= menuItem._id %>/edit" class="btn btn-warning">Edit</a>
+              <form action="/menu/<%= menuItem._id %>/delete" method="POST" class="d-inline">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

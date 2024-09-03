@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add New Reservation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color:antiquewhite;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, textarea {
+      margin-bottom: 15px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Add New Reservation</h1>
+    <form action="/reservations" method="POST">
+      <label for="user_name">User Name:</label>
+      <input type="text" id="user_name" name="user_name" placeholder="Enter User Name" required><br>
+
+      <label for="reservation_date">Reservation Date:</label>
+      <input type="date" id="reservation_date" name="reservation_date" required><br>
+
+      <label for="reservation_time">Reservation Time:</label>
+      <input type="time" id="reservation_time" name="reservation_time" required><br>
+
+      <label for="number_of_guests">Number of People:</label>
+      <input type="number" id="number_of_guests" name="number_of_guests" required><br>
+
+      <label for="special_requests">Special Requests:</label>
+      <textarea id="special_requests" name="special_requests"></textarea><br>
+
+      <button type="submit">Add Reservation</button>
+    </form>
+    <a href="/reservations">Back to Reservations List</a>
+  </div>
+</body>
+</html>
